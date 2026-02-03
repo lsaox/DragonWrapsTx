@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services • Dragon Wraps TX</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome (for footer icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Custom JS -->
+  <script src="script.js" defer></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+  />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({
+        once: true,
+        offset: 120,
+        duration: 600
+      });
+    });
+  </script>
+
+  <style>
+    .services-hero-bg {
+      background-image: url("assets/hero2.svg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Trapezoid primary button */
+    .trap-btn {
+      clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+    }
+
+    .trap-btn:hover {
+      filter: brightness(0.9);
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white overflow-x-hidden">
+
+  <!-- FULLSCREEN NAV OVERLAY -->
+  <nav
+    id="menuOverlay"
+    class="fixed inset-0 bg-black/95 text-white z-40 hidden"
+  >
+    <div class="flex flex-col h-full">
+      <!-- Overlay top bar -->
+      <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+        <!-- Logo (bigger) -->
+        <img
+          src="assets/logo.png"
+          alt="Dragon Wraps TX"
+          class="h-28 sm:h-36 md:h-44 lg:h-52 w-auto"
+        />
+
+        <!-- Close button -->
+        <button
+          id="menuClose"
+          class="p-2 rounded-full border border-white/30 hover:bg-white/10 transition"
+          aria-label="Close menu"
+        >
+          <span class="block w-5 h-[2px] bg-white rotate-45 translate-y-[2px]"></span>
+          <span class="block w-5 h-[2px] bg-white -rotate-45 -translate-y-[2px]"></span>
+        </button>
+      </div>
+
+      <!-- Centered nav links -->
+      <div class="flex-1 flex flex-col items-center justify-center space-y-8 text-xl sm:text-2xl tracking-[0.35em] uppercase">
+        <a href="index.html" class="menu-link hover:text-neutral-300 transition">Home</a>
+        <a href="index.html#about" class="menu-link hover:text-neutral-300 transition">About</a>
+        <a href="index.html#our-work" class="menu-link hover:text-neutral-300 transition">Portfolio</a>
+        <a href="services.html" class="menu-link hover:text-neutral-300 transition">Services</a>
+        <a href="contact.html" class="menu-link hover:text-neutral-300 transition">Inquire</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TOP AREA (nav + hero, not full-screen) -->
+  <section id="top" class="relative services-hero-bg">
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/85 to-black/95"></div>
+
+    <!-- NAV BAR -->
+    <header class="relative z-20">
+      <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <!-- LOGO -->
+        <a href="index.html" class="flex items-center">
+          <img
+            src="assets/logo.png"
+            alt="Dragon Wraps TX"
+            class="h-16 sm:h-20 md:h-24 w-auto"
+          />
+        </a>
+
+        <!-- Hamburger -->
+        <button
+          id="menuToggle"
+          class="p-3 border border-white/40 rounded-md bg-black/20 hover:bg-black/40 transition"
+          aria-label="Open menu"
+        >
+          <div class="space-y-2">
+            <span class="block w-7 h-[2px] bg-white"></span>
+            <span class="block w-7 h-[2px] bg-white"></span>
+            <span class="block w-7 h-[2px] bg-white"></span>
+          </div>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO CONTENT -->
+    <div class="relative z-20 max-w-4xl mx-auto px-6 pt-10 pb-20 text-center">
+      <p
+        class="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-white/70 mb-4"
+        style="font-family: 'Orbitron', system-ui, sans-serif;"
+      >
+        Clean installs • Tight lines • Real protection
+      </p>
+
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[0.18em] mb-3"
+        style="font-family: 'Orbitron', system-ui, sans-serif;"
+      >
+        SERVICES
+      </h1>
+
+      <div class="h-[2px] w-16 bg-white mx-auto mb-6"></div>
+
+      <p class="text-sm sm:text-base md:text-lg text-white/80 mb-8">
+        From full color-change wraps to PPF, chrome deletes, and starlight headliners — everything
+        is set up to make your car look right under every light and stay protected on the road.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- Primary trapezoid button – white -->
+        <a
+          href="contact.html"
+          class="trap-btn inline-flex items-center justify-center px-10 py-3 bg-white text-black text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Lock in a spot
+        </a>
+
+        <!-- Secondary outline button -->
+        <a
+          href="#primary-services"
+          class="inline-flex items-center justify-center px-10 py-3 border border-white/60 text-white text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase hover:bg-white hover:text-black transition"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          View all services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIMARY WRAP SERVICES -->
+  <section id="primary-services" class="bg-black py-16 md:py-20 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Section header -->
+      <div class="mb-12" data-aos="fade-up">
+        <p
+          class="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-white/60 mb-4"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Primary Services
+        </p>
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[0.16em] mb-3"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Built around how you drive.
+        </h2>
+     
+      </div>
+
+      <!-- TOP ROW: 3 CARDS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Color Change Wraps -->
+        <article
+          class="border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm p-6 flex flex-col gap-3"
+          data-aos="fade-up"
+        >
+          <p
+            class="text-[0.65rem] tracking-[0.3em] uppercase text-white/60"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            Color Change Wraps
+          </p>
+          <p class="text-base sm:text-lg font-medium text-white">
+            Full-body color-change wraps using premium cast films.
+          </p>
+          <p class="text-sm text-white/70">
+            Stealth, gloss, satin, metallic, color-shift and more. We focus on seams, edges and
+            door areas so it looks intentional, not like a cheap cover-up.
+          </p>
+          <ul class="mt-2 space-y-1 text-sm text-white/60">
+            <li>• Full exterior coverage</li>
+            <li>• Multiple finish options</li>
+            <li>• Great for full builds & show cars</li>
+          </ul>
+        </article>
+
+        <!-- PPF -->
+        <article
+          class="border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm p-6 flex flex-col gap-3"
+          data-aos="fade-up"
+          data-aos-delay="60"
+        >
+          <p
+            class="text-[0.65rem] tracking-[0.3em] uppercase text-white/60"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            PPF / Paint Protection Film
+          </p>
+          <p class="text-base sm:text-lg font-medium text-white">
+            Protection for people who actually drive their cars.
+          </p>
+          <p class="text-sm text-white/70">
+            Self-healing clear or stealth PPF for front ends, high-impact zones, or full-body coverage.
+            Keeps rock chips, road rash and debris from killing the paint.
+          </p>
+          <ul class="mt-2 space-y-1 text-sm text-white/60">
+            <li>• Front clip & track pack options</li>
+            <li>• Full-body coverage available</li>
+            <li>• Gloss or stealth finishes</li>
+          </ul>
+        </article>
+
+        <!-- Commercial / Printed Wraps -->
+        <article
+          class="border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm p-6 flex flex-col gap-3"
+          data-aos="fade-up"
+          data-aos-delay="120"
+        >
+          <p
+            class="text-[0.65rem] tracking-[0.3em] uppercase text-white/60"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            Commercial & Printed Wraps
+          </p>
+          <p class="text-base sm:text-lg font-medium text-white">
+            Mobile billboards for brands that want to be seen.
+          </p>
+          <p class="text-sm text-white/70">
+            Vans, trucks, and trailers with clean layouts and straight lines. Your business ends up
+            looking sharp in traffic instead of slapped together.
+          </p>
+          <ul class="mt-2 space-y-1 text-sm text-white/60">
+            <li>• Full & partial commercial wraps</li>
+            <li>• Fleet and single-vehicle options</li>
+            <li>• Logo placement & branding layout</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- BOTTOM ROW: 2 CARDS CENTERED -->
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Partial & Accent Wraps -->
+        <article
+          class="border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm p-6 flex flex-col gap-3"
+          data-aos="fade-up"
+        >
+          <p
+            class="text-[0.65rem] tracking-[0.3em] uppercase text-white/60"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            Partial & Accent Wraps
+          </p>
+          <p class="text-base sm:text-lg font-medium text-white">
+            Roofs, hoods, mirrors and detail pieces.
+          </p>
+          <p class="text-sm text-white/70">
+            When the car doesn’t need a full wrap but does need something. Subtle or aggressive accents,
+            laid clean so lines line up and edges don’t scream “DIY”.
+          </p>
+          <ul class="mt-2 space-y-1 text-sm text-white/60">
+            <li>• Roof, hood & trunk wraps</li>
+            <li>• Stripe kits & custom graphics</li>
+            <li>• Good for daily drivers</li>
+          </ul>
+        </article>
+
+        <!-- Detail add-ons -->
+        <article
+          class="border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm p-6 flex flex-col gap-3"
+          data-aos="fade-up"
+          data-aos-delay="60"
+        >
+          <p
+            class="text-[0.65rem] tracking-[0.3em] uppercase text-white/60"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            Detail Add-Ons
+          </p>
+          <p class="text-base sm:text-lg font-medium text-white">
+            Small touches that finish the build.
+          </p>
+          <p class="text-sm text-white/70">
+            Light tint, badges, and small wrap accents to tie the whole look together instead of
+            feeling half-done.
+          </p>
+          <ul class="mt-2 space-y-1 text-sm text-white/60">
+            <li>• Light and fog tint</li>
+            <li>• Badge wraps & deletes</li>
+            <li>• Spoiler / lip / diffuser accents</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Wrap CTA -->
+      <div class="mt-10 flex flex-col sm:flex-row items-center gap-4" data-aos="fade-up">
+        <a
+          href="contact.html"
+          class="trap-btn inline-flex items-center justify-center px-9 py-3 bg-white text-black text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Start wrap inquiry
+        </a>
+        <p class="text-[0.75rem] text-white/50 max-w-md">
+          Drop your year / make / model and what you’re thinking. We’ll quote it properly — no random ballparks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDITIONAL SERVICES: CHROME DELETES & STARLIGHTS -->
+  <section class="bg-black py-16 md:py-20 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="mb-10" data-aos="fade-up">
+        <p
+          class="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-white/60 mb-3"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Additional Services
+        </p>
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[0.14em]"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Chrome deletes & starlight headliners.
+        </h2>
+        <p class="mt-3 text-sm sm:text-base text-white/70 max-w-xl">
+          Perfect add-ons when we’re already wrapping the car — or on their own for the right build.
+        </p>
+      </div>
+
+      <!-- centered grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Chrome deletes -->
+        <article
+          class="border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm p-6 flex flex-col gap-4"
+          data-aos="fade-up"
+        >
+          <div>
+            <p
+              class="text-[0.65rem] tracking-[0.3em] uppercase text-white/60 mb-2"
+              style="font-family: 'Orbitron', system-ui, sans-serif;"
+            >
+              Chrome Deletes
+            </p>
+           
+            <p class="text-sm text-white/70">
+              We wrap bright chrome trim in black or a chosen color so the car looks modern and sharper
+              instead of overly shiny.
+            </p>
+          </div>
+
+          <ul class="space-y-1 text-sm text-white/60">
+            <li>• Window trim & belt molding</li>
+            <li>• Roof rails, grilles & fog surrounds</li>
+            <li>• Emblems and badge deletes</li>
+            <li>• Gloss, satin, or matte finishes</li>
+          </ul>
+
+          <a
+            href="contact.html"
+            class="mt-4 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-white/80 hover:text-white transition"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            Chrome delete quote
+            <span>→</span>
+          </a>
+        </article>
+
+        <!-- Starlight headliners -->
+        <article
+          class="border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm p-6 flex flex-col gap-4"
+          data-aos="fade-up"
+          data-aos-delay="80"
+        >
+          <div>
+            <p
+              class="text-[0.65rem] tracking-[0.3em] uppercase text-white/60 mb-2"
+              style="font-family: 'Orbitron', system-ui, sans-serif;"
+            >
+              Starlight Headliners
+            </p>
+          
+            <p class="text-sm text-white/70">
+              Custom starlight headliners with planned star layouts, twinkle settings, and optional color control
+              on certain setups. Clean wiring, trim back on right.
+            </p>
+          </div>
+
+          <ul class="space-y-1 text-sm text-white/60">
+            <li>• Multiple star densities & layouts</li>
+            <li>• Static or twinkle effects</li>
+            <li>• RGB color options on select kits</li>
+            <li>• Works on many sedans, coupes & SUVs</li>
+          </ul>
+
+          <a
+            href="contact.html"
+            class="mt-4 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-white/80 hover:text-white transition"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            Starlight build quote
+            <span>→</span>
+          </a>
+        </article>
+
+      </div>
+
+      <!-- Final CTA -->
+      <div class="mt-12 text-center" data-aos="fade-up">
+        <p class="text-sm text-white/70 mb-4 max-w-xl mx-auto">
+          Not fully sure what route to go yet? Tell us about the car, how you drive it, and what you like.
+          We’ll walk you through what actually makes sense.
+        </p>
+        <a
+          href="contact.html"
+          class="group inline-flex items-center gap-3 px-10 py-4 border border-white/80 rounded-full text-[0.65rem] sm:text-xs uppercase tracking-[0.35em] hover:bg-white hover:text-black transition"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Go to contact page
+          <span
+            class="inline-block opacity-0 -translate-x-2 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0"
+          >
+            →
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="relative bg-black text-white">
+
+    <!-- Background image + dark overlay -->
+    <div class="absolute inset-0">
+      <img
+        src="assets/s.png"
+        alt="Dragon Wraps TX background"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/85"></div>
+    </div>
+
+    <!-- Top footer content -->
+    <div class="relative max-w-6xl mx-auto px-6 py-16 md:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-start">
+
+        <!-- Quick Links -->
+        <div class="md:col-span-1">
+          <p
+            class="text-xs tracking-[0.4em] uppercase text-white/70 mb-6"
+            style="font-family: 'Orbitron', sans-serif;"
+          >
+            Quick Links
+          </p>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="index.html#top" class="text-white/80 hover:text-white transition">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="index.html#about" class="text-white/80 hover:text-white transition">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="index.html#our-work" class="text-white/80 hover:text-white transition">
+                Our Work
+              </a>
+            </li>
+            <li>
+              <a href="services.html" class="text-white/80 hover:text-white transition">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="contact.html#contact" class="text-white/80 hover:text-white transition">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Logo + blurb + socials -->
+        <div class="md:col-span-2 flex flex-col items-center text-center">
+          <!-- Logo -->
+          <img
+            src="assets/logo.png"
+            alt="Dragon Wraps TX"
+            class="h-16 md:h-20 w-auto mb-5"
+          />
+
+          <!-- Brand name -->
+          <p
+            class="text-xs tracking-[0.35em] uppercase text-white/80 mb-4"
+            style="font-family: 'Orbitron', sans-serif;"
+          >
+            Dragon Wraps TX
+          </p>
+
+          <!-- Blurb -->
+          <p class="max-w-2xl text-sm md:text-base text-white/80 leading-relaxed mb-6">
+          
+            From full color-change wraps and PPF to accents, chrome deletes and starlight headliners,
+            Dragon Wraps TX builds cars that stand out in the DFW scene.
+          </p>
+
+          <!-- Social icons -->
+          <div class="flex items-center gap-6 text-xl">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              class="text-white/80 hover:text-white transition"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="text-white/70 hover:text-white transition"
+              aria-label="TikTok"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a
+              href="#"
+              class="text-white/70 hover:text-white transition"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Divider line -->
+    <div class="relative border-t border-white/10"></div>
+
+    <!-- Bottom bar -->
+    <div class="relative max-w-6xl mx-auto px-6 py-6 text-center">
+      <p class="text-[0.65rem] tracking-[0.35em] uppercase text-white/50 mb-2">
+        © 2026 Dragon Wraps TX • All Rights Reserved
+      </p>
+      <p class="text-[0.6rem] tracking-[0.3em] uppercase text-white/40">
+        Custom coded by
+        <a
+          href="https://echelonwebsites.com"
+          target="_blank"
+          class="hover:text-white transition"
+        >
+          Echelon
+        </a>
+      </p>
+    </div>
+
+  </footer>
+
+</body>
+</html>

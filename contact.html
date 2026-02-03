@@ -22,7 +22,7 @@
       color: #fff;
     }
 
-    /* Global wrap-style button (matches your site CTAs) */
+    /* Same pill button you had before */
     .wrap-btn {
       display: inline-flex;
       align-items: center;
@@ -74,7 +74,7 @@
     <!-- BACKGROUND IMAGE + OVERLAY -->
     <div class="absolute inset-0">
       <img
-        src="assets/hero1.svg"
+        src="assets/ss.svg"
         alt="Wrapped car background"
         class="w-full h-full object-cover"
       />
@@ -83,7 +83,7 @@
 
     <!-- CONTENT -->
     <div class="relative max-w-5xl mx-auto px-6 py-20 w-full">
-      <!-- Go Back button -->
+      <!-- Go Back button (unchanged style) -->
       <div class="mb-10 text-left">
         <a href="index.html" class="wrap-btn">
           <span>Go Back</span>
@@ -91,25 +91,30 @@
         </a>
       </div>
 
-      <!-- Header -->
-   <!-- Header -->
-<div class="text-center mb-12 max-w-3xl mx-auto">
-  <div class="bg-black/55 backdrop-blur-md rounded-2xl px-6 py-8 sm:px-10 sm:py-10">
-    <h2
-      class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-wide mb-4 text-white leading-tight"
-      style="font-family: 'Orbitron', system-ui, sans-serif;"
-    >
-      Start Your Wrap
-    </h2>
-    <p class="text-white/90 text-sm sm:text-base leading-relaxed">
-      Tell us about your vehicle and your vision. The more details you provide,
-      the better we can guide you toward the perfect wrap.
-    </p>
-  </div>
-</div>
+      <!-- Header – tweaked to match services-page vibe -->
+      <div class="text-center mb-12 max-w-3xl mx-auto">
+        <div class="bg-black/60 backdrop-blur-md rounded-2xl px-6 py-8 sm:px-10 sm:py-10 border border-white/10">
+          <p
+            class="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-white/70 mb-3"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            Clean installs • Tight lines • Real protection
+          </p>
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[0.12em] mb-4 text-white leading-tight"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            Start Your Build
+          </h2>
+          <div class="h-[2px] w-14 bg-white mx-auto mb-4"></div>
+          <p class="text-white/90 text-sm sm:text-base leading-relaxed">
+            Tell us about your vehicle, how you drive it, and what you’re thinking — wraps, chrome deletes,
+            starlight headliner or a mix of all three. We’ll get you a proper quote ASAP
+          </p>
+        </div>
+      </div>
 
-
-      <!-- Netlify Form (same as front page) -->
+      <!-- Netlify Form -->
       <form
         name="wrap-inquiry"
         method="POST"
@@ -160,18 +165,21 @@
           class="w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         />
 
-        <!-- Wrap Type -->
+        <!-- Wrap Type (now includes chrome deletes & starlight) -->
         <select
           name="wrap_type"
           required
           class="w-full bg-black/80 border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         >
-          <option value="" disabled selected>Type of Wrap</option>
+          <option value="" disabled selected>Primary Service</option>
           <option>Color Change Wrap</option>
           <option>PPF Wrap</option>
           <option>Commercial / Printed Wrap</option>
           <option>Partial Wrap</option>
           <option>Roof / Accent Wrap</option>
+          <option>Chrome Delete Package</option>
+          <option>Starlight Headliner</option>
+          <option>Multiple Services / Full Build</option>
           <option>Not Sure Yet</option>
         </select>
 
@@ -179,7 +187,7 @@
         <input
           type="text"
           name="color"
-          placeholder="Color or Finish (Matte, Gloss, Satin, etc.)"
+          placeholder="Preferred color / finish (matte, gloss, satin, etc.)"
           class="w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         />
 
@@ -213,11 +221,11 @@
         <textarea
           name="message"
           rows="5"
-          placeholder="Anything else we should know about the project?"
+          placeholder="Tell us about the car, what you use it for, and any details on wrap, chrome deletes, or starlight ideas."
           class="md:col-span-2 w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         ></textarea>
 
-        <!-- Submit -->
+        <!-- Submit (same pill style as before) -->
         <div class="md:col-span-2 text-center mt-6">
           <button
             type="submit"
