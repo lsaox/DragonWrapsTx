@@ -110,3 +110,18 @@ body {
 .menu-link:hover {
   opacity: 0.7;
 }
+@media (max-width: 640px) {
+  .film-strip-section {
+    padding: 70px 16px; /* slightly tighter padding so logos feel bigger in the viewport */
+  }
+
+  .film-strip-row {
+    gap: 28px;
+    padding-right: 28px;
+  }
+
+  .film-strip-row img {
+    height: 80px;     /* was 50px – MUCH bigger now */
+    max-width: none;  /* just in case anything is constraining width */
+  }
+}
