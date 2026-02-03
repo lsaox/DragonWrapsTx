@@ -241,6 +241,7 @@
 
 
 
+
 <style>
 /* SECTION WITH BACKGROUND IMAGE */
 .film-strip-section {
@@ -254,7 +255,6 @@
 .film-strip-overlay {
   position: absolute;
   inset: 0;
-
   z-index: 1;
 }
 
@@ -290,11 +290,6 @@
   animation: film-strip-scroll 20s linear infinite;
 }
 
-/* Pause on hover */
-.film-strip-window:hover .film-strip-track {
-  animation-play-state: paused;
-}
-
 /* LOGO ROW */
 .film-strip-row {
   display: flex;
@@ -303,7 +298,7 @@
   padding-right: 80px;
 }
 
-/* LOGOS */
+/* LOGOS (DESKTOP BASE) */
 .film-strip-row img {
   height: 80px;
   width: auto;
@@ -328,17 +323,24 @@
   }
 }
 
-/* MOBILE */
+/* MOBILE: MAKE LOGOS BIGGER, NOT SMALLER */
 @media (max-width: 640px) {
-  .film-strip-row {
-    gap: 40px;
-    padding-right: 40px;
+  .film-strip-section {
+    padding: 60px 16px;
   }
+
+  .film-strip-row {
+    gap: 32px;
+    padding-right: 32px;
+  }
+
   .film-strip-row img {
-    height: 30px;
+    height: 90px;   /* <<< BIG on iPhone */
   }
 }
 </style>
+
+
 
 
 
