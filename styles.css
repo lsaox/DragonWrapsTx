@@ -166,7 +166,7 @@ body {
   }
 
   .trap-btn:hover::before {
-    background: #ffffff77;
+    background: #ffffff;
   }
 
   .trap-btn:hover .trap-btn-text,

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact • Dragon Wraps TX</title>
+  <title>Dragon Wraps TX</title>
 
-  <!-- Tailwind CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Orbitron font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -16,105 +16,637 @@
     rel="stylesheet"
   />
 
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Custom JS -->
+  <script src="script.js" defer></script>
+
+  <!-- AOS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+  />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // AOS
+      if (window.AOS) {
+        AOS.init({
+          once: true,
+          offset: 120,
+          duration: 600
+        });
+      }
+
+      // Hero video loop ~first 5s
+      const video = document.getElementById("heroVideo");
+      if (video) {
+        const loopEnd = 5;
+        video.addEventListener("loadedmetadata", () => {
+          video.currentTime = 0;
+          video.play().catch(() => {});
+          video.addEventListener("timeupdate", () => {
+            if (video.currentTime >= loopEnd) {
+              video.currentTime = 0;
+            }
+          });
+        });
+      }
+
+      // Mobile menu
+      const menuOverlay = document.getElementById("menuOverlay");
+      const menuToggle = document.getElementById("menuToggle");
+      const menuClose = document.getElementById("menuClose");
+
+      if (menuToggle && menuOverlay) {
+        menuToggle.addEventListener("click", () => {
+          menuOverlay.classList.remove("hidden");
+        });
+      }
+      if (menuClose && menuOverlay) {
+        menuClose.addEventListener("click", () => {
+          menuOverlay.classList.add("hidden");
+        });
+      }
+    });
+  </script>
+
   <style>
-    body {
-      background: #000;
-      color: #fff;
+    /* Make trap button behave nicely on small screens */
+    .trap-btn {
+      display: inline-flex;
+      align-items: stretch;
+      max-width: 320px;
+      width: 100%;
+    }
+    .trap-btn-inner {
+      flex: 1 1 auto;
+      text-align: center;
+      white-space: nowrap;
     }
 
-    /* Same pill button you had before */
-    .wrap-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.9rem 2.8rem;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      background: transparent;
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 500;
+    /* FILM STRIP SECTION */
+    .film-strip-section {
+      position: relative;
+      background: url("assets/ss.png") center / cover no-repeat;
+      padding: 90px 20px;
+      overflow: hidden;
+    }
+
+    .film-strip-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .film-strip-label {
+      color: #1a0014e1;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      gap: 0.5rem;
-      text-decoration: none;
-      white-space: nowrap;
-      transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
+      font-size: 0.85rem;
+      margin-bottom: 28px;
     }
 
-    .wrap-btn:hover {
-      background: #fff;
-      color: #000;
-      border-color: #fff;
-      transform: translateY(-1px);
+    .film-strip-window {
+      overflow: hidden;
+      padding: 26px 0;
     }
 
-    .wrap-btn__icon {
-      opacity: 0;
-      transform: translateX(-4px);
-      transition: all 0.2s ease;
+    .film-strip-track {
+      display: flex;
+      width: max-content;
+      animation: film-strip-scroll 20s linear infinite;
     }
 
-    .wrap-btn:hover .wrap-btn__icon {
-      opacity: 1;
-      transform: translateX(0);
+    .film-strip-strip {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      padding-right: 80px;
+    }
+
+    .film-strip-strip img {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .film-strip-strip img:hover {
+      transform: translateY(-3px) scale(1.03);
+      filter: brightness(1.05);
+    }
+
+    @keyframes film-strip-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 640px) {
+      .film-strip-section {
+        padding: 60px 16px;
+      }
+
+      .film-strip-strip {
+        gap: 32px;
+        padding-right: 32px;
+      }
+
+      .film-strip-strip img {
+        height: 90px;
+      }
     }
   </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="bg-black text-white overflow-x-hidden">
 
-  <!-- SINGLE CONTACT SECTION -->
-  <section id="contact" class="relative min-h-screen text-white flex items-center">
+  <!-- FULLSCREEN NAV OVERLAY (MOBILE) -->
+  <nav
+    id="menuOverlay"
+    class="fixed inset-0 bg-black/95 text-white z-50 hidden"
+  >
+    <div class="flex flex-col h-full">
 
-    <!-- BACKGROUND IMAGE + OVERLAY -->
-    <div class="absolute inset-0">
-      <img
-        src="assets/ss.svg"
-        alt="Wrapped car background"
-        class="w-full h-full object-cover"
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/92 via-black/88 to-black/96"></div>
+      <!-- TOP BAR -->
+      <div class="max-w-7xl mx-auto w-full px-6 py-6 flex items-center justify-between">
+        <img
+          src="assets/log.png"
+          alt="Dragon Wraps TX"
+          class="h-28 sm:h-36 w-auto"
+        />
+
+        <button
+          id="menuClose"
+          class="w-10 h-10 flex items-center justify-center
+                 border border-white/40 rounded-full
+                 hover:bg-white hover:text-black transition relative"
+          aria-label="Close menu"
+        >
+          <span class="block w-5 h-[2px] bg-white rotate-45 absolute"></span>
+          <span class="block w-5 h-[2px] bg-white -rotate-45 absolute"></span>
+        </button>
+      </div>
+
+      <!-- NAV LINKS -->
+      <div
+        class="flex-1 flex flex-col items-center justify-center space-y-8
+               text-lg tracking-[0.45em] uppercase"
+        style="font-family: 'Orbitron', system-ui, sans-serif;"
+      >
+        <a href="#top" class="hover:text-neutral-300 transition">Home</a>
+        <a href="#our-work" class="hover:text-neutral-300 transition">Portfolio</a>
+        <a href="services.html" class="hover:text-neutral-300 transition">Services</a>
+        <a href="#contact" class="hover:text-neutral-300 transition">Inquire</a>
+      </div>
+
+      <!-- CONTACT ICONS -->
+      <div class="pb-16 flex flex-col items-center">
+
+        <p class="text-[0.65rem] tracking-[0.45em] uppercase text-white/60 mb-5"
+           style="font-family: 'Orbitron', system-ui, sans-serif;">
+          Contact
+        </p>
+
+        <div class="flex items-center gap-6">
+          <a
+            href="tel:16822153934"
+            class="w-12 h-12 flex items-center justify-center
+                   border border-white/40 rounded-full
+                   hover:bg-white hover:text-black transition"
+            aria-label="Call Dragon Wraps TX"
+          >
+            <i class="fa-solid fa-phone text-lg"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/dragonwrapstx/?hl=en"
+            target="_blank"
+            class="w-12 h-12 flex items-center justify-center
+                   border border-white/40 rounded-full
+                   hover:bg-white hover:text-black transition"
+            aria-label="Dragon Wraps TX Instagram"
+          >
+            <i class="fa-brands fa-instagram text-lg"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO SECTION -->
+  <section
+    id="top"
+    class="relative min-h-screen lg:min-h-[120vh] overflow-hidden"
+  >
+
+    <!-- BACKGROUND VIDEO -->
+    <video
+      id="heroVideo"
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay
+      muted
+      playsinline
+    >
+      <source src="assets/13103349_1920_1080_60fps.mp4" type="video/mp4" />
+    </video>
+
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- TOP NAV BAR -->
+    <header class="absolute top-0 left-0 right-0 z-30">
+      <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+        <!-- LOGO (ALL BREAKPOINTS, MOBILE A LITTLE BIGGER) -->
+        <a href="#top" class="flex items-center">
+          <img
+            src="assets/af.svg"
+            alt="Dragon Wraps TX"
+            class="h-20 sm:h-24 md:h-28 lg:h-32 w-auto"
+          />
+        </a>
+
+        <!-- DESKTOP NAV LINKS -->
+        <nav
+          class="hidden md:flex items-center gap-10 text-[0.65rem] tracking-[0.35em] uppercase"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          <a href="#top" class="text-white/80 hover:text-white transition">Home</a>
+          <a href="#our-work" class="text-white/80 hover:text-white transition">Portfolio</a>
+          <a href="services.html" class="text-white/80 hover:text-white transition">Services</a>
+          <a href="#contact" class="text-white/80 hover:text-white transition">Inquire</a>
+        </nav>
+
+        <!-- RIGHT: IG + PHONE + CONTACT (DESKTOP) / HAMBURGER (MOBILE) -->
+        <div class="flex items-center gap-3">
+          <div class="hidden md:flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/dragonwrapstx/?hl=en"
+              target="_blank"
+              class="w-9 h-9 flex items-center justify-center rounded-full border border-white/40
+                     text-white/80 hover:bg-white hover:text-black transition"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram text-sm"></i>
+            </a>
+
+            <a
+              href="tel:16822153934"
+              class="w-9 h-9 flex items-center justify-center rounded-full border border-white/40
+                     text-white/80 hover:bg-white hover:text-black transition"
+              aria-label="Call"
+            >
+              <i class="fa-solid fa-phone text-sm"></i>
+            </a>
+
+            <a
+              href="#contact"
+              class="inline-flex items-center px-5 py-2 rounded-full border border-white/60
+                     text-[0.6rem] tracking-[0.3em] uppercase
+                     hover:bg-white hover:text-black transition"
+              style="font-family: 'Orbitron', system-ui, sans-serif;"
+            >
+              Contact
+            </a>
+          </div>
+
+          <!-- Hamburger (MOBILE ONLY) -->
+          <button
+            id="menuToggle"
+            class="p-3 border border-white/40 rounded-md bg-black/20 hover:bg-black/40 transition md:hidden"
+            aria-label="Open menu"
+          >
+            <div class="space-y-2">
+              <span class="block w-7 h-[2px] bg-white"></span>
+              <span class="block w-7 h-[2px] bg-white"></span>
+              <span class="block w-7 h-[2px] bg-white"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO CONTENT: SAME ON MOBILE + DESKTOP, SINGLE CTA -->
+    <div class="relative z-20 min-h-screen lg:min-h-[120vh] flex items-center justify-center pb-12 px-6">
+      <div class="flex flex-col items-center text-center gap-6 w-full max-w-3xl">
+        <p class="text-[0.6rem] sm:text-xs tracking-[0.45em] uppercase text-white/60">
+          Premium Vehicle Wrap Studio
+        </p>
+
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[0.2em] sm:tracking-[0.3em] uppercase"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Dragon Wraps TX
+        </h1>
+
+        <p class="text-[0.65rem] sm:text-xs tracking-[0.35em] uppercase text-white/70">
+          Color Change • PPF • Commercial Wraps
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-4">
+          <a
+            href="contact.html"
+            class="trap-btn border border-white/60 text-white hover:bg-white hover:text-black transition"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            <span class="trap-btn-inner trap-btn-text">
+              Wrap my car today
+            </span>
+            <span class="trap-btn-inner trap-btn-arrow">
+              →
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!-- CONTENT -->
-    <div class="relative max-w-5xl mx-auto px-6 py-20 w-full">
-      <!-- Go Back button (unchanged style) -->
-      <div class="mb-10 text-left">
-        <a href="index.html" class="wrap-btn">
-          <span>Go Back</span>
-          <span class="wrap-btn__icon">←</span>
+  </section>
+
+  <!-- FILM STRIP SECTION -->
+  <section class="film-strip-section">
+    <div class="film-strip-inner">
+      <p class="film-strip-label">FILMS WE WORK WITH</p>
+
+      <div class="film-strip-window">
+        <div class="film-strip-track">
+          <div class="film-strip-strip">
+            <img src="assets/ca.svg" alt="3M">
+            <img src="assets/ca1.svg" alt="Avery Dennison">
+            <img src="assets/ca3.svg" alt="Cheetah Wrap">
+            <img src="assets/ca4.svg" alt="Hexis">
+            <img src="assets/ca5.svg" alt="TeckWrap">
+          </div>
+          <div class="film-strip-strip">
+            <img src="assets/ca.svg" alt="3M">
+            <img src="assets/ca1.svg" alt="Avery Dennison">
+            <img src="assets/ca3.svg" alt="Cheetah Wrap">
+            <img src="assets/ca4.svg" alt="Hexis">
+            <img src="assets/ca5.svg" alt="TeckWrap">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="relative bg-black text-white">
+    <div class="absolute inset-0 overflow-hidden">
+      <img
+        src="assets/aaaaa.svg"
+        alt="Custom wrapped car in studio lighting"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+      <div class="max-w-2xl">
+        <p class="text-xs sm:text-sm tracking-[0.35em] uppercase text-white/60 mb-4">
+          About Dragon Wraps TX
+        </p>
+
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Where Art Meets<br />
+          Automotive Wraps
+        </h2>
+
+        <p class="text-sm sm:text-base md:text-lg text-white/85 leading-relaxed mb-8">
+          Dragon Wraps TX specializes in high-end custom vinyl wraps throughout the DFW area.
+          We work with all types of vehicles, from daily drivers to full builds, and approach
+          every project with precision, patience, and respect for the craft.
+        </p>
+
+        <a
+          href="contact.html"
+          class="inline-flex items-center justify-center px-8 py-3 border border-white/70 rounded-full 
+                 text-xs sm:text-sm tracking-[0.3em] uppercase bg-transparent 
+                 hover:bg-white hover:text-black transition-colors duration-200"
+        >
+          Start Your Wrap
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR WORK -->
+  <section
+    id="our-work"
+    class="relative py-24 text-black"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="assets/Dragon Wraps (14).png"  
+        alt="Dragon Wraps TX background"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-white/90"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p
+          class="text-xs tracking-[0.35em] uppercase text-neutral-500 mb-3"
+          style="font-family: 'Orbitron', sans-serif;"
+        >
+          Our Work
+        </p>
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-semibold text-neutral-900"
+          style="font-family: 'Orbitron', sans-serif;"
+        >
+          Recent Wrap Projects
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="lg:col-span-2 aspect-[16/10] overflow-hidden">
+          <img
+            src="assets/gallery.png"
+            alt="Full color change wrap"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="aspect-[4/5] overflow-hidden">
+          <img
+            src="assets/galler1.png"
+            alt="PPF wrap detail"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="aspect-[4/5] overflow-hidden">
+          <img
+            src="assets/gallery2.png"
+            alt="Commercial wrap"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="aspect-[4/5] overflow-hidden">
+          <img
+            src="assets/gallery5.png"
+            alt="Accent wrap"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="aspect-[4/5] overflow-hidden">
+          <img
+            src="assets/gallery4.png"
+            alt="Custom finish wrap"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OPTIONS / SERVICES STRIP -->
+  <section class="bg-white text-black py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2
+          class="text-sm sm:text-base md:text-lg tracking-[0.45em] uppercase text-neutral-500 mb-3"
+          style="font-family: 'Orbitron', sans-serif;"
+        >
+          Over 100+ options
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
+
+        <a href="contact.html" class="group relative rounded-2xl border border-neutral-200 bg-white px-6 py-5 text-center overflow-hidden" data-aos="fade-up">
+          <div class="pointer-events-none absolute inset-0 bg-indigo-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-150 ease-out"></div>
+          <span class="relative block text-xs sm:text-sm tracking-[0.25em] uppercase text-neutral-900 transition-opacity group-hover:opacity-0">
+            Calender wraps
+          </span>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs sm:text-sm tracking-[0.3em] uppercase text-white opacity-0 group-hover:opacity-100">
+            Free Quote
+          </span>
+        </a>
+
+        <a href="contact.html" class="group relative rounded-2xl border border-neutral-200 bg-white px-6 py-5 text-center overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+          <div class="pointer-events-none absolute inset-0 bg-emerald-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-150 ease-out"></div>
+          <span class="relative block text-xs sm:text-sm tracking-[0.25em] uppercase text-neutral-900 transition-opacity group-hover:opacity-0">
+            Cast wraps
+          </span>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs sm:text-sm tracking-[0.3em] uppercase text-white opacity-0 group-hover:opacity-100">
+            Free Quote
+          </span>
+        </a>
+
+        <a href="contact.html" class="group relative rounded-2xl border border-neutral-200 bg-white px-6 py-5 text-center overflow-hidden" data-aos="fade-up" data-aos-delay="160">
+          <div class="pointer-events-none absolute inset-0 bg-sky-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-150 ease-out"></div>
+          <span class="relative block text-xs sm:text-sm tracking-[0.25em] uppercase text-neutral-900 transition-opacity group-hover:opacity-0">
+            PPF wraps and film
+          </span>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs sm:text-sm tracking-[0.3em] uppercase text-white opacity-0 group-hover:opacity-100">
+            Free Quote
+          </span>
+        </a>
+
+        <a href="contact.html" class="group relative rounded-2xl border border-neutral-200 bg-white px-6 py-5 text-center overflow-hidden" data-aos="fade-up">
+          <div class="pointer-events-none absolute inset-0 bg-purple-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-150 ease-out"></div>
+          <span class="relative block text-xs sm:text-sm tracking-[0.25em] uppercase text-neutral-900 transition-opacity group-hover:opacity-0">
+            Color change finishes
+          </span>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs sm:text-sm tracking-[0.3em] uppercase text-white opacity-0 group-hover:opacity-100">
+            Free Quote
+          </span>
+        </a>
+
+        <a href="contact.html" class="group relative rounded-2xl border border-neutral-200 bg-white px-6 py-5 text-center overflow-hidden" data-aos="fade-up" data-aos-delay="80">
+          <div class="pointer-events-none absolute inset-0 bg-amber-500 -translate-x-full group-hover:translate-x-0 transition-transform duration-150 ease-out"></div>
+          <span class="relative block text-xs sm:text-sm tracking-[0.25em] uppercase text-neutral-900 transition-opacity group-hover:opacity-0">
+            Printed graphics and branding
+          </span>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs sm:text-sm tracking-[0.3em] uppercase text-white opacity-0 group-hover:opacity-100">
+            Free Quote
+          </span>
+        </a>
+
+        <a href="contact.html" class="group relative rounded-2xl border border-neutral-200 bg-white px-6 py-5 text-center overflow-hidden" data-aos="fade-up" data-aos-delay="160">
+          <div class="pointer-events-none absolute inset-0 bg-rose-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-150 ease-out"></div>
+          <span class="relative block text-xs sm:text-sm tracking-[0.25em] uppercase text-neutral-900 transition-opacity group-hover:opacity-0">
+            Specialty textures and finishes
+          </span>
+          <span class="pointer-events-none absolute inset-0 flex items-center justify-center text-xs sm:text-sm tracking-[0.3em] uppercase text-white opacity-0 group-hover:opacity-100">
+            Free Quote
+          </span>
+        </a>
+
+      </div>
+
+      <div class="text-center" data-aos="fade-up">
+        <a
+          href="services.html"
+          class="group inline-flex items-center gap-3 px-10 py-4
+                 border border-neutral-900 rounded-full
+                 text-xs sm:text-sm uppercase tracking-[0.35em]
+                 text-neutral-900
+                 hover:bg-neutral-900 hover:text-white transition"
+          style="font-family: 'Orbitron', sans-serif;"
+        >
+          <span>Services</span>
+          <span
+            class="inline-block opacity-0 -translate-x-2
+                   transition-all duration-200
+                   group-hover:opacity-100 group-hover:translate-x-0"
+          >
+            →
+          </span>
         </a>
       </div>
 
-      <!-- Header – tweaked to match services-page vibe -->
-      <div class="text-center mb-12 max-w-3xl mx-auto">
-        <div class="bg-black/60 backdrop-blur-md rounded-2xl px-6 py-8 sm:px-10 sm:py-10 border border-white/10">
-          <p
-            class="text-[0.7rem] sm:text-xs tracking-[0.35em] uppercase text-white/70 mb-3"
-            style="font-family: 'Orbitron', system-ui, sans-serif;"
-          >
-            Clean installs • Tight lines • Real protection
-          </p>
-          <h2
-            class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[0.12em] mb-4 text-white leading-tight"
-            style="font-family: 'Orbitron', system-ui, sans-serif;"
-          >
-            Start Your Build
-          </h2>
-          <div class="h-[2px] w-14 bg-white mx-auto mb-4"></div>
-          <p class="text-white/90 text-sm sm:text-base leading-relaxed">
-            Tell us about your vehicle, how you drive it, and what you’re thinking — wraps, chrome deletes,
-            starlight headliner or a mix of all three. We’ll get you a proper quote ASAP
-          </p>
-        </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="relative text-white">
+    <div class="absolute inset-0">
+      <img
+        src="assets/hero1.svg"
+        alt="Wrapped car background"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black/95"></div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-6 py-28">
+      <div class="text-center mb-16">
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-wide mb-4"
+          style="font-family: 'Orbitron', system-ui, sans-serif;"
+        >
+          Start Your Wrap
+        </h2>
+        <p class="text-white/75 max-w-2xl mx-auto text-sm sm:text-base">
+          Tell us about your vehicle and your vision. The more details you provide,
+          the better we can guide you toward the perfect wrap.
+        </p>
       </div>
 
-      <!-- Netlify Form -->
       <form
         name="wrap-inquiry"
         method="POST"
@@ -122,15 +654,11 @@
         netlify-honeypot="bot-field"
         class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-black/60 backdrop-blur-sm p-8 md:p-10 rounded-2xl"
       >
-        <!-- Netlify hidden form name -->
         <input type="hidden" name="form-name" value="wrap-inquiry" />
-
-        <!-- Honeypot -->
         <p class="hidden">
           <label>Don’t fill this out: <input name="bot-field" /></label>
         </p>
 
-        <!-- Name -->
         <input
           type="text"
           name="name"
@@ -139,7 +667,6 @@
           class="w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         />
 
-        <!-- Email -->
         <input
           type="email"
           name="email"
@@ -148,7 +675,6 @@
           class="w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         />
 
-        <!-- Phone -->
         <input
           type="tel"
           name="phone"
@@ -156,7 +682,6 @@
           class="w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         />
 
-        <!-- Vehicle -->
         <input
           type="text"
           name="vehicle"
@@ -165,33 +690,27 @@
           class="w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         />
 
-        <!-- Wrap Type (now includes chrome deletes & starlight) -->
         <select
           name="wrap_type"
           required
           class="w-full bg-black/80 border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         >
-          <option value="" disabled selected>Primary Service</option>
+          <option value="" disabled selected>Type of Wrap</option>
           <option>Color Change Wrap</option>
           <option>PPF Wrap</option>
           <option>Commercial / Printed Wrap</option>
           <option>Partial Wrap</option>
           <option>Roof / Accent Wrap</option>
-          <option>Chrome Delete Package</option>
-          <option>Starlight Headliner</option>
-          <option>Multiple Services / Full Build</option>
           <option>Not Sure Yet</option>
         </select>
 
-        <!-- Color / Finish -->
         <input
           type="text"
           name="color"
-          placeholder="Preferred color / finish (matte, gloss, satin, etc.)"
+          placeholder="Color or Finish (Matte, Gloss, Satin, etc.)"
           class="w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         />
 
-        <!-- Budget -->
         <select
           name="budget"
           required
@@ -205,7 +724,6 @@
           <option>Not Sure Yet</option>
         </select>
 
-        <!-- Timeline -->
         <select
           name="timeline"
           class="w-full bg-black/80 border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
@@ -217,28 +735,148 @@
           <option>Just researching</option>
         </select>
 
-        <!-- Message -->
         <textarea
           name="message"
           rows="5"
-          placeholder="Tell us about the car, what you use it for, and any details on wrap, chrome deletes, or starlight ideas."
+          placeholder="Anything else we should know about the project?"
           class="md:col-span-2 w-full bg-transparent border border-white/30 px-4 py-3 text-sm focus:outline-none focus:border-white"
         ></textarea>
 
-        <!-- Submit (same pill style as before) -->
         <div class="md:col-span-2 text-center mt-6">
           <button
             type="submit"
-            class="wrap-btn w-full md:w-auto justify-center"
+            class="inline-flex items-center justify-center px-10 py-4 border border-white/70 
+                   text-xs sm:text-sm tracking-[0.3em] uppercase 
+                   hover:bg-white hover:text-black transition"
           >
-            <span>Submit Inquiry</span>
-            <span class="wrap-btn__icon">→</span>
+            Submit Inquiry
           </button>
         </div>
 
       </form>
+
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="relative bg-black text-white">
+    <div class="absolute inset-0">
+      <img
+        src="assets/s.png"  
+        alt="Dragon Wraps TX background"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/85"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-16 md:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-start">
+
+        <div class="md:col-span-1">
+          <p
+            class="text-xs tracking-[0.4em] uppercase text-white/70 mb-6"
+            style="font-family: 'Orbitron', sans-serif;"
+          >
+            Quick Links
+          </p>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="#top" class="text-white/80 hover:text-white transition">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#our-work" class="text-white/80 hover:text-white transition">
+                Our Work
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="text-white/80 hover:text-white transition">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2 flex flex-col items-center text-center">
+          <img
+            src="assets/logo.png"
+            alt="Dragon Wraps TX"
+            class="h-20 md:h-24 w-auto mb-5"
+          />
+
+          <p
+            class="text-xs tracking-[0.35em] uppercase text-white/80 mb-4"
+            style="font-family: 'Orbitron', sans-serif;"
+          >
+            Dragon Wraps TX
+          </p>
+
+          <p class="max-w-2xl text-sm md:text-base text-white/80 leading-relaxed mb-6">
+            Clean installs, sharp lines, and wraps that actually hit under any light.
+            From full color-change wraps and PPF to accents and branding, Dragon Wraps TX
+            builds cars that stand out in the DFW scene.
+          </p>
+
+          <a
+            href="tel:16822153934"
+            class="mb-8 inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/40
+                   text-xs sm:text-sm tracking-[0.3em] uppercase text-white/80
+                   hover:bg-white hover:text-black transition"
+            style="font-family: 'Orbitron', system-ui, sans-serif;"
+          >
+            <i class="fa-solid fa-phone text-base"></i>
+            <span>(682) 215-3934</span>
+          </a>
+
+          <div class="flex items-center gap-6 text-xl">
+            <a
+              href="https://www.instagram.com/dragonwrapstx/?hl=en"
+              target="_blank"
+              class="text-white/80 hover:text-white transition"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="text-white/70 hover:text-white transition"
+              aria-label="TikTok"
+            >
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a
+              href="#"
+              class="text-white/70 hover:text-white transition"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="relative border-t border-white/10"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-6 text-center">
+      <p class="text-[0.65rem] tracking-[0.35em] uppercase text-white/50 mb-2">
+        © 2026 Dragon Wraps TX • All Rights Reserved
+      </p>
+      <p class="text-[0.6rem] tracking-[0.3em] uppercase text-white/40">
+        Custom coded by
+        <a
+          href="https://echelonwebsites.com"
+          target="_blank"
+          class="hover:text-white transition"
+        >
+          Echelon
+        </a>
+      </p>
+    </div>
+
+  </footer>
 
 </body>
 </html>
