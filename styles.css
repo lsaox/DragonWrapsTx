@@ -125,3 +125,56 @@ body {
     max-width: none;  /* just in case anything is constraining width */
   }
 }
+  /* Trapezoid hero CTA */
+  .trap-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 2.8rem;
+    border-radius: 9999px;
+    overflow: hidden;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  }
+
+  .trap-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.16);
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .trap-btn-inner {
+    position: relative;
+    z-index: 10;
+  }
+
+  .trap-btn-text {
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+
+  .trap-btn-arrow {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    transform: translateX(-4px);
+    transition: all 0.2s ease;
+  }
+
+  .trap-btn:hover::before {
+    background: #ffffff77;
+  }
+
+  .trap-btn:hover .trap-btn-text,
+  .trap-btn:hover .trap-btn-arrow {
+    color: #000000;
+  }
+
+  .trap-btn:hover .trap-btn-arrow {
+    transform: translateX(0);
+    opacity: 1;
+  }

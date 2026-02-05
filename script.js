@@ -39,3 +39,25 @@ if (menuClose) {
 menuLinks.forEach((link) => {
   link.addEventListener("click", closeMenu);
 });
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("heroVideo");
+    if (!video) return;
+
+    const loopEnd = 8; // seconds – adjust if you want 4s, 6s, etc.
+
+    // Make sure metadata (duration, etc.) is loaded
+    video.addEventListener("loadedmetadata", () => {
+      // Start from the beginning
+      video.currentTime = 0;
+      video.play().catch(() => {
+        // some browsers block autoplay, nothing to do here
+      });
+
+      video.addEventListener("timeupdate", () => {
+        if (video.currentTime >= loopEnd) {
+          // Jump back to the start of the loop
+          video.currentTime = 0;
+        }
+      });
+    });
+  });
