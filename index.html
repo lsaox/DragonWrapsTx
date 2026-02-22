@@ -170,6 +170,7 @@
         <a href="#top" class="hover:text-neutral-300 transition">Home</a>
         <a href="#our-work" class="hover:text-neutral-300 transition">Work</a>
         <a href="services.html" class="hover:text-neutral-300 transition">Services</a>
+        <a href="#faq" class="hover:text-neutral-300 transition">FAQ</a>
         <a href="#contact" class="hover:text-neutral-300 transition">Inquire</a>
       </div>
 
@@ -202,7 +203,15 @@
   <section id="top" class="relative min-h-screen lg:min-h-[110vh] overflow-hidden">
 
     <!-- BACKGROUND VIDEO -->
-    <video id="heroVideo" class="absolute inset-0 w-full h-full object-cover" autoplay muted playsinline>
+    <video
+      id="heroVideo"
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay
+      muted
+      playsinline
+      preload="metadata"
+      poster="assets/hero-fallback.jpg"
+    >
       <source src="assets/13103349_1920_1080_60fps.mp4" type="video/mp4" />
     </video>
 
@@ -224,6 +233,7 @@
           <a href="#top" class="text-white/80 hover:text-white transition">Home</a>
           <a href="#our-work" class="text-white/80 hover:text-white transition">Work</a>
           <a href="services.html" class="text-white/80 hover:text-white transition">Services</a>
+          <a href="#faq" class="text-white/80 hover:text-white transition">FAQ</a>
           <a href="#contact" class="text-white/80 hover:text-white transition">Inquire</a>
         </nav>
 
@@ -326,7 +336,7 @@
   <!-- ABOUT -->
   <section id="about" class="relative bg-black text-white">
     <div class="absolute inset-0 overflow-hidden">
-      <img src="assets/aaaaa.svg" alt="Custom wrapped car in studio lighting" class="w-full h-full object-cover" />
+      <img src="assets/aaaaa.svg" alt="Custom wrapped car in studio lighting" class="w-full h-full object-cover" loading="lazy" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/85"></div>
     </div>
 
@@ -359,7 +369,7 @@
   <!-- OUR WORK -->
   <section id="our-work" class="relative py-24 text-black">
     <div class="absolute inset-0">
-      <img src="assets/Dragon Wraps (14).png" alt="Dragon Wraps TX background" class="w-full h-full object-cover" />
+      <img src="assets/Dragon Wraps (14).png" alt="Dragon Wraps TX background" class="w-full h-full object-cover" loading="lazy" />
       <div class="absolute inset-0 bg-white/90"></div>
     </div>
 
@@ -375,23 +385,23 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div class="lg:col-span-2 aspect-[16/10] overflow-hidden">
-          <img src="assets/gallery.png" alt="Full color change wrap" class="w-full h-full object-cover" />
+          <img src="assets/gallery.png" alt="Full color change wrap" class="w-full h-full object-cover" loading="lazy" />
         </div>
 
         <div class="aspect-[4/5] overflow-hidden">
-          <img src="assets/galler1.png" alt="PPF wrap detail" class="w-full h-full object-cover" />
+          <img src="assets/galler1.png" alt="PPF wrap detail" class="w-full h-full object-cover" loading="lazy" />
         </div>
 
         <div class="aspect-[4/5] overflow-hidden">
-          <img src="assets/gallery2.png" alt="Commercial wrap" class="w-full h-full object-cover" />
+          <img src="assets/gallery2.png" alt="Commercial wrap" class="w-full h-full object-cover" loading="lazy" />
         </div>
 
         <div class="aspect-[4/5] overflow-hidden">
-          <img src="assets/gallery5.png" alt="Accent wrap" class="w-full h-full object-cover" />
+          <img src="assets/gallery5.png" alt="Accent wrap" class="w-full h-full object-cover" loading="lazy" />
         </div>
 
         <div class="aspect-[4/5] overflow-hidden">
-          <img src="assets/gallery4.png" alt="Custom finish wrap" class="w-full h-full object-cover" />
+          <img src="assets/gallery4.png" alt="Custom finish wrap" class="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
     </div>
@@ -460,10 +470,128 @@
     </div>
   </section>
 
+  <!-- FINANCING BANNER -->
+  <section class="bg-black text-white border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-red-600/60 bg-red-600/10">
+          <i class="fa-solid fa-credit-card text-xs text-red-400"></i>
+        </span>
+        <div>
+          <p class="text-[0.7rem] tracking-[0.35em] uppercase text-white/60" style="font-family:'Orbitron',system-ui,sans-serif;">
+            We offer financing
+          </p>
+          <p class="text-xs sm:text-sm text-white/75">
+            Split your wrap into manageable payments instead of paying all at once.
+          </p>
+        </div>
+      </div>
+
+      <a href="#contact"
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 text-[0.65rem] tracking-[0.3em] uppercase text-white/80 hover:bg-white hover:text-black transition"
+         style="font-family:'Orbitron',system-ui,sans-serif;">
+        Ask about financing
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="bg-black text-white py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-xs tracking-[0.35em] uppercase text-white/50 mb-3" style="font-family:'Orbitron',system-ui,sans-serif;">
+          Questions
+        </p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4"
+            style="font-family:'Orbitron',system-ui,sans-serif;">
+          FAQ
+        </h2>
+        <p class="text-sm sm:text-base text-white/70 max-w-2xl mx-auto">
+          A few quick answers before you reach out. If you don’t see your question here,
+          send us a message and we’ll walk you through everything.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Financing -->
+        <div class="border border-white/10 rounded-2xl p-5 sm:p-6 bg-white/5">
+          <h3 class="text-sm sm:text-base font-semibold mb-2" style="font-family:'Orbitron',system-ui,sans-serif;">
+            Do you offer financing or payment plans?
+          </h3>
+          <p class="text-sm sm:text-base text-white/75 leading-relaxed">
+            Yes. We offer financing options so you can break your wrap into smaller payments
+            instead of paying everything up front. Mention that you’re interested in financing
+            when you inquire and we’ll walk you through current options.
+          </p>
+        </div>
+
+        <!-- Service area -->
+        <div class="border border-white/10 rounded-2xl p-5 sm:p-6 bg-white/5">
+          <h3 class="text-sm sm:text-base font-semibold mb-2" style="font-family:'Orbitron',system-ui,sans-serif;">
+            What areas do you service?
+          </h3>
+          <p class="text-sm sm:text-base text-white/75 leading-relaxed">
+            We service the entire Dallas–Fort Worth area and surrounding cities.
+            If you’re somewhere in DFW, we’ve got you. Not sure if you’re too far?
+            Send your location with your inquiry and we’ll confirm.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="border border-white/10 rounded-2xl p-5 sm:p-6 bg-white/5">
+          <h3 class="text-sm sm:text-base font-semibold mb-2" style="font-family:'Orbitron',system-ui,sans-serif;">
+            How long does a full wrap usually take?
+          </h3>
+          <p class="text-sm sm:text-base text-white/75 leading-relaxed">
+            Most full color-change wraps take about 3–5 business days depending on the
+            vehicle, condition of the paint, and complexity of the job. Partial wraps
+            and accent work are usually quicker. We’ll give you a more accurate timeline
+            once we know your vehicle and what you’re looking for.
+          </p>
+        </div>
+
+        <!-- Films -->
+        <div class="border border-white/10 rounded-2xl p-5 sm:p-6 bg-white/5">
+          <h3 class="text-sm sm:text-base font-semibold mb-2" style="font-family:'Orbitron',system-ui,sans-serif;">
+            What brands of film do you use?
+          </h3>
+          <p class="text-sm sm:text-base text-white/75 leading-relaxed">
+            We work with reputable brands like 3M, Avery Dennison, TeckWrap, Hexis,
+            Cheetah Wrap, and other high-quality films. The right film depends on
+            your color, finish, and budget — we’ll recommend options that actually
+            make sense for your build.
+          </p>
+        </div>
+
+        <!-- Quotes / pricing -->
+        <div class="border border-white/10 rounded-2xl p-5 sm:p-6 bg-white/5">
+          <h3 class="text-sm sm:text-base font-semibold mb-2" style="font-family:'Orbitron',system-ui,sans-serif;">
+            How do I get an accurate quote?
+          </h3>
+          <p class="text-sm sm:text-base text-white/75 leading-relaxed">
+            The best way is to fill out the form below with your year, make, model,
+            what type of wrap you’re thinking about, and a rough budget. Photos of
+            the car help a lot too. From there we can dial in options and pricing
+            that match what you actually want.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#contact"
+           class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/60 text-[0.7rem] tracking-[0.3em] uppercase text-white/80 hover:bg-white hover:text-black transition"
+           style="font-family:'Orbitron',system-ui,sans-serif;">
+          Still have questions? Inquire →
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT SECTION -->
   <section id="contact" class="relative text-white">
     <div class="absolute inset-0">
-      <img src="assets/hero1.svg" alt="Wrapped car background" class="w-full h-full object-cover" />
+      <img src="assets/hero1.svg" alt="Wrapped car background" class="w-full h-full object-cover" loading="lazy" />
       <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black/95"></div>
     </div>
 
@@ -546,7 +674,7 @@
   <!-- FOOTER -->
   <footer id="footer" class="relative bg-black text-white">
     <div class="absolute inset-0">
-      <img src="assets/s.png" alt="Dragon Wraps TX background" class="w-full h-full object-cover" />
+      <img src="assets/s.png" alt="Dragon Wraps TX background" class="w-full h-full object-cover" loading="lazy" />
       <div class="absolute inset-0 bg-black/85"></div>
     </div>
 
@@ -560,6 +688,7 @@
           <ul class="space-y-3 text-sm">
             <li><a href="#top" class="text-white/80 hover:text-white transition">Home</a></li>
             <li><a href="#our-work" class="text-white/80 hover:text-white transition">Our Work</a></li>
+            <li><a href="#faq" class="text-white/80 hover:text-white transition">FAQ</a></li>
             <li><a href="#contact" class="text-white/80 hover:text-white transition">Contact</a></li>
           </ul>
         </div>
@@ -630,8 +759,10 @@
           if (video.currentTime >= loopEnd) video.currentTime = 0;
         };
         video.addEventListener("loadedmetadata", () => {
-          video.currentTime = 0;
-          video.play().catch(() => {});
+          try {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+          } catch (e) {}
         });
         video.addEventListener("timeupdate", safeLoop);
       }
