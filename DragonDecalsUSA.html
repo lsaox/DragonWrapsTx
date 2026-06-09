@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dragon Decals USA</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dragonRed: "#b10000",
+            ink: "#090909",
+            softBlack: "#141414"
+          },
+          fontFamily: {
+            orbitron: ["Orbitron", "sans-serif"],
+            inter: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html, body {
+      overflow-x: hidden;
+      background: #f7f5f1;
+      color: #111;
+    }
+
+    .lux-tile {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+      min-height: 280px;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+
+    .lux-tile.big {
+      min-height: 560px;
+    }
+
+    .lux-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform .55s ease, filter .55s ease;
+    }
+
+    .lux-tile:hover img {
+      transform: scale(1.055);
+      filter: contrast(1.08) saturate(1.08);
+    }
+
+    .lux-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.22), transparent);
+      z-index: 1;
+    }
+
+    .tile-content {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 26px;
+      z-index: 2;
+      color: white;
+    }
+
+    .lux-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 1px solid #111;
+      color: #111;
+      padding: 14px 24px;
+      font-family: Orbitron, sans-serif;
+      font-size: .68rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      transition: all .22s ease;
+    }
+
+    .lux-btn:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .tile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-family: Orbitron, sans-serif;
+      font-size: .65rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,.75);
+      padding-bottom: 7px;
+      transition: all .2s ease;
+    }
+
+    .tile-btn:hover {
+      color: #ff2a2a;
+      border-color: #ff2a2a;
+    }
+
+    @media (max-width: 768px) {
+      .lux-tile.big {
+        min-height: 430px;
+      }
+      .lux-tile {
+        min-height: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-inter">
+
+  <!-- TOP BAR -->
+  <div class="bg-black text-white text-center py-2 text-[0.62rem] tracking-[0.35em] uppercase font-orbitron">
+    Premium Decal Kits 
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-[#f7f5f1] border-b border-black/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-7 flex items-center justify-between">
+
+      <a href="#" class="text-xs tracking-[0.28em] uppercase text-black/60 hidden sm:block">
+        Made for high-end builds
+      </a>
+
+      <a href="#" class="text-center">
+    
+      </a>
+
+      <a href="#contact" class="text-xs tracking-[0.28em] uppercase text-black/60 hidden sm:block">
+        Request custom
+      </a>
+
+    </div>
+
+    <nav class="border-t border-black/10">
+      <div class="max-w-5xl mx-auto px-5 py-4 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-[0.67rem] tracking-[0.3em] uppercase font-orbitron">
+        <a href="#" class="text-black hover:text-dragonRed transition">Home</a>
+        <a href="#collections" class="text-black/65 hover:text-black transition">Collections</a>
+        <a href="#custom" class="text-black/65 hover:text-black transition">Custom Work</a>
+        <a href="#quality" class="text-black/65 hover:text-black transition">Quality</a>
+        <a href="#contact" class="text-black/65 hover:text-black transition">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CENTERED BRAND INTRO -->
+  <section class="bg-[#f7f5f1] text-center px-5 pt-16 pb-10">
+    <p class="font-orbitron text-dragonRed text-xs tracking-[0.5em] uppercase mb-5">
+      Premium Automotive Decals
+    </p>
+
+    <h1 class="font-orbitron text-4xl sm:text-6xl md:text-7xl font-black tracking-[0.1em] leading-tight text-black">
+      DRAGON DECALS
+    </h1>
+
+    <p class="font-orbitron text-sm sm:text-xl tracking-[0.45em] text-black/55 mt-4">
+      USA
+    </p>
+
+    <p class="max-w-2xl mx-auto mt-7 text-black/65 text-sm sm:text-base leading-relaxed">
+      High-end vinyl decal kits for cars, trucks, and custom builds. No cheap sticker packs.
+      Every collection is built for bold installs, clean photos, and premium presentation.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#collections" class="lux-btn">
+        Shop Collections
+      </a>
+      <a href="#contact" class="lux-btn">
+        Start Custom
+      </a>
+    </div>
+  </section>
+
+  <!-- IMAGE GRID -->
+  <main id="collections" class="max-w-7xl mx-auto px-4 sm:px-8 pb-20">
+
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+      <a href="#" class="lux-tile big lg:col-span-2">
+        <img src="Decals/car.jpg"Cyber sigil decal kit">
+        <div class="tile-content">
+          <p class="font-orbitron text-3xl sm:text-5xl font-black tracking-[0.08em]">
+            Cyber Sigil Kits
+          </p>
+          <p class="text-white/80 text-sm sm:text-base mt-3 max-w-md">
+            Futuristic side graphics, aggressive body lines, and high-impact vehicle designs.
+          </p>
+          <p class="font-orbitron text-xs tracking-[0.3em] text-white/70 mt-4">
+            Starting at $350+
+          </p>
+          <div class="mt-5">
+            <span class="tile-btn">View Collection →</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="grid grid-cols-1 gap-4">
+        <a href="#" class="lux-tile">
+          <img src="Decals/d.png" alt="Anime decal kit">
+          <div class="tile-content">
+            <p class="font-orbitron text-2xl font-black tracking-[0.08em]">
+              Anime Builds
+            </p>
+            <p class="text-white/75 text-sm mt-2">
+              Premium themed kits for standout cars.
+            </p>
+            <p class="font-orbitron text-[0.65rem] tracking-[0.25em] text-white/65 mt-3">
+              $350+
+            </p>
+            <div class="mt-4">
+              <span class="tile-btn">Shop →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="lux-tile">
+          <img src="Decals/hell.png" alt="Logo decal kit">
+          <div class="tile-content">
+            <p class="font-orbitron text-2xl font-black tracking-[0.08em]">
+              Logos / Decals
+            </p>
+            <p class="text-white/75 text-sm mt-2">
+              Clean badge-style graphics, symbols, and custom logo sets.
+            </p>
+            <p class="font-orbitron text-[0.65rem] tracking-[0.25em] text-white/65 mt-3">
+              $350+
+            </p>
+            <div class="mt-4">
+              <span class="tile-btn">Shop →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    <a href="#" class="lux-tile">
+  <img src="Decals/hood.jpg" alt="Hood decal kit">
+  <div class="tile-content">
+    <p class="font-orbitron text-2xl font-black tracking-[0.08em]">
+      Hood Decals
+    </p>
+    <p class="text-white/75 text-sm mt-2">
+      Aggressive hood graphics, center stripes, vents, callouts, and custom layouts.
+    </p>
+    <p class="font-orbitron text-[0.65rem] tracking-[0.25em] text-white/65 mt-3">
+      $450+
+    </p>
+    <div class="mt-4">
+      <span class="tile-btn">View Hood Kits →</span>
+    </div>
+  </div>
+</a>
+
+      <a href="#" id="custom" class="lux-tile">
+        <img src="assets/custom-work.jpg" alt="Custom decal work">
+        <div class="tile-content">
+          <p class="font-orbitron text-2xl font-black tracking-[0.08em]">
+            Custom Work
+          </p>
+          <p class="text-white/75 text-sm mt-2">
+            Send the idea. We turn it into a premium decal concept.
+          </p>
+          <p class="font-orbitron text-[0.65rem] tracking-[0.25em] text-white/65 mt-3">
+            $500+
+          </p>
+          <div class="mt-4">
+            <span class="tile-btn">Start Custom →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="lux-tile">
+        <img src="assets/reflective-chrome.jpg" alt="Reflective chrome decal kit">
+        <div class="tile-content">
+          <p class="font-orbitron text-2xl font-black tracking-[0.08em]">
+            Chrome / Reflective
+          </p>
+          <p class="text-white/75 text-sm mt-2">
+            Higher-end finishes built for night shots and clean contrast.
+          </p>
+          <p class="font-orbitron text-[0.65rem] tracking-[0.25em] text-white/65 mt-3">
+            $650+
+          </p>
+          <div class="mt-4">
+            <span class="tile-btn">Explore →</span>
+          </div>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- QUALITY STRIP -->
+    <section id="quality" class="grid grid-cols-1 md:grid-cols-4 border border-black/10 bg-white mt-12">
+      <div class="p-7 border-b md:border-b-0 md:border-r border-black/10">
+        <p class="font-orbitron text-sm tracking-[0.25em] uppercase mb-3">
+          Premium Vinyl
+        </p>
+        <p class="text-black/60 text-sm leading-relaxed">
+          Built for real vehicle installs, not cheap temporary sticker packs.
+        </p>
+      </div>
+
+      <div class="p-7 border-b md:border-b-0 md:border-r border-black/10">
+        <p class="font-orbitron text-sm tracking-[0.25em] uppercase mb-3">
+          $350+ Minimum
+        </p>
+        <p class="text-black/60 text-sm leading-relaxed">
+          Every order is positioned as a premium kit or custom design package.
+        </p>
+      </div>
+
+      <div class="p-7 border-b md:border-b-0 md:border-r border-black/10">
+        <p class="font-orbitron text-sm tracking-[0.25em] uppercase mb-3">
+          Custom Sizing
+        </p>
+        <p class="text-black/60 text-sm leading-relaxed">
+          Built around doors, quarter panels, bedsides, hoods, and full vehicle flow.
+        </p>
+      </div>
+
+      <div class="p-7">
+        <p class="font-orbitron text-sm tracking-[0.25em] uppercase mb-3">
+         Based in the USA
+        </p>
+        <p class="text-black/60 text-sm leading-relaxed">
+          Designed for car people, shops, crews, and premium builds across the USA.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="mt-16 bg-black text-white p-8 sm:p-12 text-center">
+      <p class="font-orbitron text-dragonRed text-xs tracking-[0.45em] uppercase mb-4">
+        Custom Order Request
+      </p>
+
+      <h2 class="font-orbitron text-3xl sm:text-5xl font-black tracking-[0.08em] mb-5">
+        SEND YOUR DECAL IDEA
+      </h2>
+
+      <p class="text-white/65 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+        Upload-ready concepts, custom kit ideas, logo-based designs, reflective options,
+        and high-end decal packages starting at $350+.
+      </p>
+
+      <form name="decal-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+        class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 text-left">
+
+        <input type="hidden" name="form-name" value="decal-inquiry">
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field"></label>
+        </p>
+
+        <input name="name" required placeholder="Full Name"
+          class="bg-white text-black border border-white/20 px-4 py-4 text-sm outline-none">
+
+        <input name="phone" required placeholder="Phone Number"
+          class="bg-white text-black border border-white/20 px-4 py-4 text-sm outline-none">
+
+        <input name="email" type="email" placeholder="Email Address"
+          class="bg-white text-black border border-white/20 px-4 py-4 text-sm outline-none">
+
+        <select name="decal_type" required
+          class="bg-white text-black border border-white/20 px-4 py-4 text-sm outline-none">
+          <option value="">Type of Decal</option>
+          <option>Cyber Sigil Kit</option>
+          <option>Anime Kit</option>
+          <option>Logo / Decal Package</option>
+          <option>Dragon / Tribal Kit</option>
+          <option>Chrome / Reflective Kit</option>
+          <option>Fully Custom Work</option>
+        </select>
+
+        <textarea name="message" rows="5" placeholder="Tell us what you want made..."
+          class="md:col-span-2 bg-white text-black border border-white/20 px-4 py-4 text-sm outline-none"></textarea>
+
+        <button type="submit"
+          class="md:col-span-2 bg-dragonRed hover:bg-red-700 transition px-8 py-4 font-orbitron text-xs tracking-[0.35em] uppercase text-white">
+          Submit Custom Request
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="bg-[#f7f5f1] border-t border-black/10 py-10 text-center px-5">
+    <p class="font-orbitron text-lg tracking-[0.25em] uppercase">
+      Dragon Decals USA
+    </p>
+    <p class="text-black/50 text-sm mt-3">
+      Premium automotive decal kits starting at $350+.
+    </p>
+    <p class="text-black/35 text-[0.65rem] tracking-[0.3em] uppercase mt-6">
+      © 2026 Dragon Decals USA • Custom coded by Echelon
+    </p>
+  </footer>
+
+</body>
+</html>
